@@ -1,0 +1,61 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+<project name="application" basedir="." default="help">
+    <tstamp>
+        <format property="BUILD" pattern="%Y%m%d%H%M%S" />
+    </tstamp>
+
+    <property name="tab"              value="    " />
+    <property name="arrow"            value="=> " />
+    <property name="default_excludes" value="*~, #*#, .#*, %*%, .git*, .svn, .svn/**, ._*, .DS_Store" />
+    <property name="package"          value="${phing.project.name}" />
+
+    <!--##############################################################################################################-->
+
+    <!-- composer -->
+    <property name="target.composer.description" value="Installs/updates all of the dependencies listed in the composer.json definition." />
+    <target name="composer" description="${target.composer.description}">
+        <exec command="composer install" dir="${project.basedir}" passthru="true" escape="false" />
+    </target>
+
+    <!-- build.all -->
+    <property name="target.build.all.description" value="Concatenates and compresses CSS and JavaScript files with Juicer." />
+    <target name="build.all" depends="build.css, build.js" description="${target.build.all.description}" />
+
+        <!-- build.css -->
+        <property name="target.build.css.description" value="Concatenates and compresses CSS files with Juicer." />
+        <target name="build.css" description="${target.build.css.description}">
+            <exec command="juicer merge --force --cache-buster none -o public/styles/production.min.css public/styles/production.css" dir="${project.basedir}" passthru="true" escape="false" />
+        </target>
+
+        <!-- build.js -->
+        <property name="target.build.js.description" value="Concatenates and compresses JavaScript files with Juicer." />
+        <target name="build.js" description="${target.build.js.description}">
+            <exec command="juicer merge --force --skip-verification -o public/scripts/production.min.js public/scripts/production.js" dir="${project.basedir}" passthru="true" escape="false" />
+        </target>
+
+    <!--##############################################################################################################-->
+
+    <!-- help -->
+    <property name="target.help.description" value="This help display." />
+    <target name="help" description="${target.help.description}">
+        <echo>
+${tab}The following Phing tasks are available:
+
+${tab}${arrow}help:
+${tab}${tab}${target.help.description}
+
+${tab}${arrow}composer:
+${tab}${tab}${target.composer.description}
+
+${tab}${arrow}build.all:
+${tab}${tab}${target.build.all.description}
+
+${tab}${tab}${arrow}build.css:
+${tab}${tab}${tab}${target.build.css.description}
+
+${tab}${tab}${arrow}build.js:
+${tab}${tab}${tab}${target.build.js.description}
+</echo>
+    </target>
+
+</project>
