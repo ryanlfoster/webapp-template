@@ -1,0 +1,52 @@
+<?php
+
+# Template logic goes here.
+
+?><?= '<'; ?>?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:media="http://search.yahoo.com/mrss/">
+
+	<channel>
+		<title><![CDATA[]]></title>
+		<link></link>
+		<atom:link href="" rel="self" type="application/rss+xml" />
+		<description><![CDATA[]]></description>
+		<pubDate><?= date(DATE_RFC2822) ?></pubDate>
+		<language>en-us</language>
+		<generator></generator>
+		<docs>http://www.rssboard.org/rss-specification</docs>
+
+		<!-- foreach -->
+		<item>
+			<title><![CDATA[]]></title>
+			<link></link>
+			<comments></comments>
+			<pubDate><?= date(DATE_RFC2822) ?></pubDate>
+			<dc:creator></dc:creator>
+			<guid isPermaLink="true"></guid>
+			<description><![CDATA[]]></description>
+			<media:group>
+				<media:title type="plain"><![CDATA[]]></media:title>
+				<media:description type="html"><![CDATA[]]></media:description>
+				<media:keywords><![CDATA[]]></media:keywords>
+				<media:rating scheme="urn:simple"></media:rating>
+				<media:community>
+					<media:tags><![CDATA[]]></media:tags>
+					<media:statistics views="5" favorites="5" />
+					<media:starRating average="3.5" count="20" min="1" max="10" />
+				</media:community>
+				<media:peerLink type="application/x-bittorrent" href="" />
+				<media:thumbnail url="" height="" width="" />
+				<media:content url="" fileSize="" type="video/mp4" medium="video" expression="full" bitrate="" framerate="" channels="" height="" width="" isDefault="true" />
+				<media:content url="" fileSize="" type="video/webm" medium="video" expression="full" bitrate="" framerate="" channels="" height="" width="" />
+				<media:content url="" fileSize="" type="video/ogv" medium="video" expression="full" bitrate="" framerate="" channels="" height="" width="" />
+				<media:content url="" fileSize="" type="image/jpeg" medium="image" height="" width="" />
+				<media:content url="" type="application/x-bittorrent" />
+			</media:group>
+		</item>
+		<!-- endforeach -->
+
+	</channel>
+</rss>

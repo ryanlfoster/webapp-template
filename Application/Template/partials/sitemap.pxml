@@ -1,0 +1,30 @@
+<?php
+
+# Template logic goes here.
+
+?><?= '<'; ?>?xml version="1.0" encoding="UTF-8"?>
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+	<!-- foreach -->
+	<url>
+		<loc></loc>
+		<video:video>
+			<video:title><![CDATA[]]></video:title>
+			<video:description><![CDATA[]]></video:description>
+			<video:content_loc><!-- .mp4 --></video:content_loc>
+			<video:thumbnail_loc><!-- .jpg --></video:thumbnail_loc>
+			<video:duration><!-- seconds --></video:duration>
+			<video:publication_date><?= date(DATE_W3C) ?></video:publication_date>
+			<video:uploader info=""><!-- username --></video:uploader>
+			<video:family_friendly><!-- yes/no --></video:family_friendly>
+			<video:rating></video:rating>
+			<video:view_count></video:view_count>
+			<!-- foreach -->
+			<video:tag><!-- tag --></video:tag>
+			<!-- endforeach -->
+		</video:video>
+	</url>
+	<!-- endforeach -->
+</urlset>
